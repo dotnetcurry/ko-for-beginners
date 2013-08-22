@@ -1,0 +1,42 @@
+<title>Index</title>
+<h2>Index</h2>
+<p>
+    <button class="btn btn-primary" id="create">Create</button>
+</p>
+<table class="table">
+    <tr>
+        <th>
+            Key
+        </th>
+        <th>
+            Value
+        </th>
+        <th></th>
+    </tr>
+
+    <tbody data-bind="foreach: lookupCollection">
+        <tr data-bind="template: { name: Mode, data: $data }">
+        </tr>
+    </tbody>
+</table>
+
+<script type="text/html" id="display">
+    <td data-bind="text: Key"></td>
+    <td data-bind="text: Value"></td>
+    <td>
+        <button class="btn btn-success kout-edit">Edit</button>
+        <button class="btn btn-danger kout-delete">Delete</button>
+    </td>
+</script>
+
+<script type="text/html" id="edit">
+    <td><input type="text" data-bind="value: Key" /></td>
+    <td><input type="text" data-bind="value: Value" /></td>
+    <td>
+        <button class="btn btn-success kout-update">Update</button>
+        <button class="btn btn-danger kout-cancel">Cancel</button>
+    </td>
+</script>
+@section Scripts{
+    @Scripts.Render("~/bundles/knockout")
+}
